@@ -1,0 +1,22 @@
+<section id="tasks">
+    <header>
+        <h2>{{ name }}'s Tasks</h2>
+        <menu>
+            <button (click)="onClickAddButton()">Add Task</button>    
+        </menu>
+    </header>
+
+    @if(!isAddTaskButton){
+        <ul>
+            @for (task of taskByUserId; track task.id) {
+                <li>
+                    <app-task [task]="task" [userId]="userId" />
+                </li>
+            }
+        </ul>
+    }
+
+    @if (isAddTaskButton) {
+        <app-add-task [userId]="userId" (closeAddModal)="closeAddModal()" />
+    }
+</section>

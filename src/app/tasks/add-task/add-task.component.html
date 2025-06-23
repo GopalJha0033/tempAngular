@@ -1,0 +1,31 @@
+<!-- app.component.html -->
+<div>
+    <h1>Template-Driven Form</h1>
+    <form (ngSubmit)="onClickAdd()" #myForm="ngForm">
+      <label for="name">Title:</label>
+      <input type="text" id="name" name="title" [(ngModel)]="title" required />
+  
+      <div *ngIf="myForm.submitted && !title">
+        <span style="color: red;">Title is required!</span>
+      </div>
+
+      <label for="name">Summary:</label>
+      <input type="text" id="summary" name="summary" [(ngModel)]="summary" required />
+  
+      <div *ngIf="myForm.submitted && !summary">
+        <span style="color: red;">Summary is required!</span>
+      </div>
+
+      <label for="name">Due Date:</label>
+      <input type="text" id="dueDate" name="dueDate" [(ngModel)]="dueDate" required />
+  
+      <div *ngIf="myForm.submitted && !dueDate">
+        <span style="color: red;">dueDate is required!</span>
+      </div>
+  
+      <button type="submit">Submit</button>
+    </form>
+  
+    <p>You entered: {{ title }}</p>
+  </div>
+  
